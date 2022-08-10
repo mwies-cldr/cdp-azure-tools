@@ -50,6 +50,13 @@
       "metadata": {
         "description": "Name of Azure Managed Identity for writing Ranger Audit logs."
       }
+    },
+    "razIdentityName": {
+      "defaultValue": "[concat(parameters('environmentName'), '-RazIdentity')]",
+      "type": "String",
+      "metadata": {
+        "description": "Name of Azure Managed Identity for RAZ."
+      }
     }
   },
   "variables": {
@@ -156,6 +163,15 @@
       "type": "Microsoft.ManagedIdentity/userAssignedIdentities",
       "apiVersion": "2018-11-30",
       "name": "[parameters('loggerIdentityName')]",
+      "location": "[resourceGroup().location]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
+      ]
+    },
+    {
+      "type": "Microsoft.ManagedIdentity/userAssignedIdentities",
+      "apiVersion": "2018-11-30",
+      "name": "[parameters('razIdentityName')]",
       "location": "[resourceGroup().location]",
       "dependsOn": [
         "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
