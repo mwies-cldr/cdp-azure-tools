@@ -24,7 +24,7 @@
       }
     },
     "storageAccountName": {
-      "defaultValue": "[parameters('environmentName')]",
+      "defaultValue": "[parameters('storageName')]",
       "type": "String",
       "metadata": {
         "description": "Name of Microsoft Storage Account."
