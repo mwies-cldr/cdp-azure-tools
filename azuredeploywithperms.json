@@ -9,6 +9,13 @@
         "description": "Name of the CDP Environment"
       }
     },
+    "storageName": {
+      "defaultValue": "cdppocstor",
+      "type": "String",
+      "metadata": {
+        "description": "Name of the CDP Storage Account"
+      }   
+    },
     "virtualNetworkName": {
       "defaultValue": "[parameters('environmentName')]",
       "type": "String",
